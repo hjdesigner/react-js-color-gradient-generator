@@ -15,17 +15,22 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^.+\\.css$": "<rootDir>/config/CSSStub.js"
+      "^.+\\.(css|scss|jpg|png|svg)$": "<rootDir>/config/CSSStub.js"
     }
   },
   "standard": {
     "globals": [
       "it",
-      "expect"
+      "expect",
+      "describe",
+      "beforeEach",
+      "fetch"
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@storybook/react": "^3.2.8",
+    "add": "^2.0.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
@@ -43,8 +48,10 @@
     "gulp": "^3.9.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.1.0",
+    "node-sass": "^4.9.1",
     "react-hot-loader": "3.0.0",
     "react-test-renderer": "^15.6.1",
+    "sass-loader": "^7.0.3",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
     "standard-loader": "^6.0.1",
@@ -53,12 +60,14 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dashboard": "^1.0.0-5",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.8.2",
+    "yarn": "^1.7.0"
   },
   "dependencies": {
     "@fdaciuk/ajax": "^2.3.0",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "babel-runtime": "^6.26.0",
-    "milligram": "^1.3.0",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "prop-types": "^15.5.10",

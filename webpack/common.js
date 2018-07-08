@@ -57,9 +57,9 @@ module.exports = {
   },
 
   cssLoader: {
-    test: /\.css$/,
-    include: [paths.src, join(paths.modules, 'milligram')],
-    use: ['style-loader', 'css-loader']
+    test: /\.(css|scss)$/,
+    include: paths.src,
+    use: ['style-loader', 'css-loader', 'sass-loader']
   },
 
   fileLoader: {
