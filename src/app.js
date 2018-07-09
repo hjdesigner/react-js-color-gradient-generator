@@ -1,5 +1,6 @@
 'use strict'
 import React from 'react'
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEye, faMinus } from '@fortawesome/free-solid-svg-icons'
 import './app.scss'
