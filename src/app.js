@@ -1,20 +1,21 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import { addColors, removeColors } from 'reducers/colors/actions-creators.js'
+import { addColors, toggleColors, removeColors, newColors } from 'reducers/colors/actions-creators.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faEye, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faEye, faMinus, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import './app.scss'
 
-const App = ({ colors, handleClickAdd, handleClickRemove }) => (
-  <div className='container' style={{ background: `linear-gradient(45deg, ${colors.map(item => item.color)}` }}>
+const App = ({ colors, handleClickAdd, handleClickRemove, handleClickEye, handleValue }) => (
+  <div className='container' style={{ background: `linear-gradient(45deg, ${getVisibility(colors).map(item => item.color)}` }}>
     <main>
       <h1>Color Gradient Generator</h1>
       {colors.map((item) => (
         <div className='form-fields' key={item.id}>
-          <input type='text' defaultValue={item.color} />
-          <button>
-            <FontAwesomeIcon icon={faEye} />
+          <input type='text' maxLength='7' defaultValue={item.color} onChange={handleValue(item.id)} />
+          <button type='button' className={item.visibility === true ? 'true' : 'false'} onClick={handleClickEye(item.id)}>
+            <FontAwesomeIcon className='eye' icon={faEye} />
+            <FontAwesomeIcon className='eye-slash' icon={faEyeSlash} />
           </button>
         </div>
       ))}
@@ -29,6 +30,9 @@ const App = ({ colors, handleClickAdd, handleClickRemove }) => (
   </div>
 )
 
+const getVisibility = (colors) => {
+  return colors.filter(item => item.visibility === true)
+}
 const mapStateToProps = (state) => ({
   colors: state.colors
 })
@@ -39,6 +43,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleClickRemove: (id) => () => {
     dispatch(removeColors(id))
+  },
+  handleClickEye: (id) => () => {
+    dispatch(toggleColors(id))
+  },
+  handleValue: (id) => (e) => {
+    dispatch(newColors(id, e.target.value))
   }
 })
 

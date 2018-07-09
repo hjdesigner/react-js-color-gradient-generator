@@ -1,5 +1,5 @@
 'use strict'
-import { ADD_COLORS, REMOVE_COLORS } from './actions'
+import { ADD_COLORS, REMOVE_COLORS, TOGGLE_COLORS, NEW_COLORS } from './actions'
 import { v4 } from 'uuid'
 
 export const addColors = () => ({
@@ -10,7 +10,17 @@ export const addColors = () => ({
   }
 })
 
+export const toggleColors = (id) => ({
+  type: TOGGLE_COLORS,
+  payload: { id }
+})
+
 export const removeColors = (id) => ({
   type: REMOVE_COLORS,
   payload: { id }
+})
+
+export const newColors = (id, color) => ({
+  type: NEW_COLORS,
+  payload: { id, color }
 })
