@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Controls from 'components/controls'
 import FieldsList from 'components/fields-list'
+import Github from 'components/github'
 import './app.scss'
 
 const App = ({ colors }) => (
@@ -12,6 +13,7 @@ const App = ({ colors }) => (
       <FieldsList />
       <Controls />
     </main>
+    <Github />
   </div>
 )
 

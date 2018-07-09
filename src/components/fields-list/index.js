@@ -9,7 +9,7 @@ const FieldsList = ({ colors, handleValue, handleClickEye }) => (
   <div className='fields'>
     {colors.map((item) => (
       <div className='form-fields' key={item.id}>
-        <input type='text' maxLength='7' defaultValue={item.color} onChange={handleValue(item.id)} />
+        <input type='text' style={{ color: item.color }} maxLength='7' defaultValue={item.color} onChange={handleValue(item.id)} />
         <button type='button' className={item.visibility === true ? 'true' : 'false'} onClick={handleClickEye(item.id)}>
           <FontAwesomeIcon className='eye' icon={faEye} />
           <FontAwesomeIcon className='eye-slash' icon={faEyeSlash} />

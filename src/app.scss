@@ -16,6 +16,7 @@ h1 {
   font-family: Arial;
   font-size: 1.5rem;
   text-align: center;
+  color: #FFF;
   &:after {
     content: "";
     width: 40%;
@@ -23,7 +24,7 @@ h1 {
     position: absolute;
     bottom: -18px;
     border-radius: 5px;
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(255, 255, 255);
   }
 }
 [data-js="app"] {
@@ -62,6 +63,12 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
+      &:hover {
+        svg {
+          transition: all .25s ease-in;
+          color: #FFF;
+        }
+      }
       &.true {
         svg.eye{
           display: flex;
@@ -81,6 +88,7 @@ main {
       svg {
         color: rgb(204, 204, 204);
         font-size: 2rem;
+        transition: all .25s ease-out;
       }
     }
   }
@@ -93,13 +101,29 @@ main {
       margin-right: 10px;
       background-color: rgb(0, 0, 0);
       cursor: pointer;
+      &:hover {
+        svg {
+          color: #FFF;
+          transition: all .25s ease-in;
+        }
+      }
       &:last-child {
         margin-right: 0;
       }
       svg {
         color: rgb(204, 204, 204);
         font-size: 2rem;
+        transition: all .25s ease-out;
       }
     }
+  }
+}
+.github {
+  width: 60px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  img {
+    width: 100%;
   }
 }

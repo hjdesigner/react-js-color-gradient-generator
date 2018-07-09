@@ -22,7 +22,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Color Gradient Generator React.js + Redux',
     template: join(paths.src, 'html', 'template.html')
   },
 
