@@ -1,5 +1,5 @@
 'use strict'
-import { ADD_COLORS, TOGGLE_COLORS, NEW_COLORS } from './actions'
+import { ADD_COLORS, TOGGLE_COLORS, NEW_COLORS, REMOVE_COLORS } from './actions'
 import createReducer from '../create-reducer'
 
 const initialState = [
@@ -30,7 +30,8 @@ const colors = createReducer(initialState, {
       ...colors,
       color: action.payload.color
     }
-  })
+  }),
+  [REMOVE_COLORS]: (state, action) => state.filter(colors => colors.id !== action.payload.id)
 })
 
 export default colors
