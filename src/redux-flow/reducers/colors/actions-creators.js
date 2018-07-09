@@ -1,5 +1,5 @@
 'use strict'
-import { ADD_COLORS } from './actions'
+import { ADD_COLORS, REMOVE_COLORS } from './actions'
 import { v4 } from 'uuid'
 
 export const addColors = () => ({
@@ -8,4 +8,9 @@ export const addColors = () => ({
     id: v4(),
     color: `#${Math.random().toString(16).slice(2, 8)}`
   }
+})
+
+export const removeColors = (id) => ({
+  type: REMOVE_COLORS,
+  payload: { id }
 })
